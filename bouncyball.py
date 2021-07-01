@@ -16,7 +16,7 @@ def bouncyphysics():
             rand = random.randint(1,2)
             if rand == 1:
                 ballevent = "leftup"
-            else:
+            elif rand == 2:
                 ballevent = "leftdown"
         else:
             randx = random.randint(4,5)
@@ -25,13 +25,13 @@ def bouncyphysics():
             bally -= randy
             pygame.draw.circle(window,(255,255,255),(ballx + 1,bally + 1),20)
     elif ballevent == "leftdown":
-        if bally > 400:
+        if bally > 500:
             ballevent = "leftup"
         elif ballx < 5:
             rand = random.randint(1,2)
             if rand == 1:
                 ballevent = "rightup"
-            else:
+            elif rand == 2:
                 ballevent = "rightdown"
         else:
             randx = random.randint(4,5)
@@ -42,6 +42,13 @@ def bouncyphysics():
     elif ballevent == "rightup":
         if bally < 5:
             ballevent = "rightdown"
+        elif ballx > 600:
+            rand = random.randint(1,2)
+            print(rand)
+            if rand == 1:
+                ballevent = "leftup"
+            elif rand == 2:
+                ballevent = "leftdown"
         else:
             randx = random.randint(4,5)
             randy = random.randint(4,5)
@@ -51,16 +58,17 @@ def bouncyphysics():
     elif ballevent == "rightdown":
         if ballx > 600:
             rand = random.randint(1,2)
+            print(rand)
             if rand == 1:
                 ballevent = "leftup"
-            else:
+            elif rand == 2:
                 ballevent = "leftdown"
         elif bally > 500:
             rand = random.randint(1,2)
             if rand == 1:
                 ballevent = "leftup"
-            else:
-                ballevent = "rightdown"
+            elif rand == 2:
+                ballevent = "rightup"
         else:
             randx = random.randint(4,5)
             randy = random.randint(4,5)
